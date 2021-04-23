@@ -1,10 +1,16 @@
 import { decrementType, incrementType } from "../types";
 
-const counterReducer = (state = 0, action) => {
+const counterReducer = (state = {}, action) => {
   //정수
   switch (action.type) {
     case incrementType:
-      return state + action.payload;
+      //item []
+      return {
+        ...state,
+        items: state.items.map((user) =>
+          user.id === action.id ? { ...user, asdas } : user
+        ),
+      };
     case decrementType:
       return state - action.payload;
     default:
@@ -15,7 +21,7 @@ const counterReducer = (state = 0, action) => {
   //     return state + 1;
   // }else if(action.type === 'DECREMENT'){
   //     return state -1;
-  // }else{
+  // }else{asdasdsd
   //     return state;
   // }
 };
